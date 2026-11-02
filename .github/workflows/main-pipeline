@@ -1,0 +1,19 @@
+name: Main Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  test-step:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "1. Testing"
+
+  pylint-step:
+    needs: pylint # Waits for pylint to finish
+    uses: ./.github/workflows/pylint.yml
+
+  docker-step:
+    needs: docker-publish # Waits for docker-publish to finish
+    uses: ./.github/workflows/docker-publish.yml
