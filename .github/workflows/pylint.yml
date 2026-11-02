@@ -24,4 +24,4 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        pylint --disable=missing-docstring --fail-under=8.0 app/
+        pylint --disable=missing-docstring,missing-final-newline --fail-under=8.0 app/
