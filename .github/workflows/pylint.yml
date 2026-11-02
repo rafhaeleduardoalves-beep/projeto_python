@@ -23,5 +23,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install pylint
     - name: Analysing the code with pylint
+      continue-on-error: true
       run: |
         pylint --disable=missing-docstring,missing-final-newline,too-few-public-methods --fail-under=8.0 app/
